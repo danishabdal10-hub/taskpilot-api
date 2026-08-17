@@ -30,3 +30,13 @@ jobs:
         run: pytest
       - name: Build Docker Image
         run: docker build -t taskpilot-api:v1 .
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Push Docker Image
+        run: |
+          docker tag taskpilot-api:v1 danishabdal10-hub/taskpilot-api:latest
+          docker push danishabdal10-hub/taskpilot-api:latest
