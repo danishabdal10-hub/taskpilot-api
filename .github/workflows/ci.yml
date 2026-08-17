@@ -38,5 +38,5 @@ jobs:
 
       - name: Push Docker Image
         run: |
-          docker tag taskpilot-api:v1 danishabdal10-hub/taskpilot-api:latest
-          docker push danishabdal10-hub/taskpilot-api:latest
+          docker tag taskpilot-api:v1 danishabdal/taskpilot-api:latest
+          docker push danishabdal/taskpilot-api:latest
